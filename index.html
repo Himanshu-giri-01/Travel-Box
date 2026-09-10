@@ -36,7 +36,8 @@
               DEFAULT: '#22252A',
               light: '#3A3F47',
               dark: '#121316',
-              surface: '#1B1D22'
+              surface: '#1B1D22',
+              solid: '#101114'
             },
             ivory: {
               DEFAULT: '#FAF8F5',
@@ -176,68 +177,97 @@
           </a>
         </div>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button id="mobileMenuBtn" aria-label="Open Navigation Menu" class="lg:hidden p-2 text-white hover:text-gold focus:outline-none transition-colors">
-          <i data-lucide="menu" class="w-6 h-6"></i>
+        <!-- Mobile Hamburger Button with Animated Bars -->
+        <button id="mobileMenuBtn" aria-label="Toggle Mobile Navigation" class="lg:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5 p-2 text-white hover:text-gold focus:outline-none transition-colors z-[10001]">
+          <span class="hamburger-bar w-6 h-[2px] bg-white transition-all duration-300 transform origin-center"></span>
+          <span class="hamburger-bar w-6 h-[2px] bg-white transition-all duration-300"></span>
+          <span class="hamburger-bar w-6 h-[2px] bg-white transition-all duration-300 transform origin-center"></span>
         </button>
-      </div>
-    </div>
-
-    <!-- Mobile Drawer Overlay -->
-    <div id="mobileDrawer" class="mobile-drawer fixed inset-0 bg-charcoal-dark/95 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-between p-8">
-      <div>
-        <div class="flex items-center justify-between pb-6 border-b border-white/10">
-          <div>
-            <span class="font-serif text-2xl tracking-[0.12em] font-medium text-white uppercase block">
-              Travel Box Holidays
-            </span>
-            <span class="text-[9px] uppercase tracking-[0.35em] text-sand-light block -mt-1">
-              Patna, Bihar
-            </span>
-          </div>
-          <button id="closeDrawerBtn" aria-label="Close Navigation Menu" class="p-2 text-white/70 hover:text-gold">
-            <i data-lucide="x" class="w-6 h-6"></i>
-          </button>
-        </div>
-
-        <nav class="mt-8 flex flex-col space-y-5 text-xl font-serif text-white">
-          <a href="#hero" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2">Home</a>
-          <a href="#destinations" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2">Journeys & Destinations</a>
-          <a href="#services" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2">Complete Services</a>
-          <a href="#why-us" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2">Why Travel Box</a>
-          <a href="#about" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2">About The Agency</a>
-          <a href="#reviews" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2">Reviews (4.8 ★)</a>
-          <a href="#contact" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2">Office & Contact</a>
-        </nav>
-      </div>
-
-      <div class="pt-6 border-t border-white/10 space-y-3">
-        <a href="#planner" class="mobile-nav-link block text-center uppercase tracking-widest text-xs font-semibold py-3.5 bg-gold text-charcoal-dark font-sans">
-          Plan Your Journey
-        </a>
-        <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 text-center uppercase tracking-widest text-xs font-semibold py-3 border border-white/20 text-white font-sans hover:border-gold hover:text-gold transition-colors">
-          <i data-lucide="message-circle" class="w-4 h-4 text-gold"></i>
-          WhatsApp: +91 96544 22590
-        </a>
       </div>
     </div>
   </nav>
 
-  <!-- 1. HERO SECTION -->
-  <section id="hero" class="relative min-h-[100vh] flex items-center justify-center bg-charcoal-dark overflow-hidden pt-20">
-    <!-- Photographic Slideshow & Vignette -->
-    <div class="absolute inset-0 z-0">
-      <div class="hero-bg-slide active" style="background-image: linear-gradient(to bottom, rgba(18,19,22,0.42) 0%, rgba(18,19,22,0.78) 100%), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop');"></div>
-      <div class="hero-bg-slide" style="background-image: linear-gradient(to bottom, rgba(18,19,22,0.42) 0%, rgba(18,19,22,0.78) 100%), url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop');"></div>
-      <div class="hero-bg-slide" style="background-image: linear-gradient(to bottom, rgba(18,19,22,0.42) 0%, rgba(18,19,22,0.78) 100%), url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2000&auto=format&fit=crop');"></div>
+  <!-- Mobile Drawer Overlay (Fixed Full Screen with Opaque Luxury Background) -->
+  <div id="mobileDrawer" class="mobile-drawer fixed inset-0 z-[10000] invisible pointer-events-none flex flex-col justify-between p-6 sm:p-10 transition-all duration-500 overflow-y-auto">
+    <!-- Solid / High-Opacity Luxury Backdrop Layer -->
+    <div class="drawer-solid-bg absolute inset-0 bg-[#121316] opacity-98 backdrop-blur-2xl -z-10 border-l border-white/10"></div>
+    
+    <div>
+      <!-- Drawer Header -->
+      <div class="flex items-center justify-between pb-6 border-b border-white/15">
+        <div>
+          <span class="font-serif text-2xl tracking-[0.12em] font-medium text-white uppercase block">
+            Travel Box Holidays
+          </span>
+          <span class="text-[9px] uppercase tracking-[0.35em] text-sand-light block -mt-1 font-medium">
+            Exhibition Road, Patna
+          </span>
+        </div>
+        <button id="closeDrawerBtn" aria-label="Close Navigation Menu" class="p-2 text-white/70 hover:text-gold transition-colors focus:outline-none">
+          <i data-lucide="x" class="w-7 h-7"></i>
+        </button>
+      </div>
+
+      <!-- Navigation Links with Staggered Slide In -->
+      <nav class="mt-8 flex flex-col space-y-4 text-xl sm:text-2xl font-serif text-white drawer-nav-list">
+        <a href="#hero" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2.5 flex items-center justify-between">
+          <span>Home</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 opacity-40"></i>
+        </a>
+        <a href="#destinations" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2.5 flex items-center justify-between">
+          <span>Journeys & Destinations</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 opacity-40"></i>
+        </a>
+        <a href="#services" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2.5 flex items-center justify-between">
+          <span>Complete Services</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 opacity-40"></i>
+        </a>
+        <a href="#why-us" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2.5 flex items-center justify-between">
+          <span>Why Travel Box</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 opacity-40"></i>
+        </a>
+        <a href="#about" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2.5 flex items-center justify-between">
+          <span>About The Agency</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 opacity-40"></i>
+        </a>
+        <a href="#reviews" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2.5 flex items-center justify-between">
+          <span>Reviews (4.8 ★)</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 opacity-40"></i>
+        </a>
+        <a href="#contact" class="mobile-nav-link hover:text-gold transition-colors border-b border-white/5 pb-2.5 flex items-center justify-between">
+          <span>Office & Contact</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 opacity-40"></i>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Drawer Footer Actions -->
+    <div class="pt-8 border-t border-white/15 space-y-3.5 mt-8">
+      <a href="#planner" class="mobile-nav-link block text-center uppercase tracking-widest text-xs font-semibold py-4 bg-gold text-charcoal-dark font-sans shadow-xl">
+        Plan Your Journey
+      </a>
+      <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 text-center uppercase tracking-widest text-xs font-semibold py-3.5 border border-white/25 text-white font-sans hover:border-gold hover:text-gold transition-colors bg-white/5">
+        <i data-lucide="message-circle" class="w-4 h-4 text-gold"></i>
+        WhatsApp: +91 96544 22590
+      </a>
+    </div>
+  </div>
+
+  <!-- 1. HERO SECTION WITH CINEMATIC 3D PERSPECTIVE -->
+  <section id="hero" class="relative min-h-[100vh] flex items-center justify-center bg-charcoal-dark overflow-hidden pt-20 perspective-container">
+    <!-- Photographic Slideshow & Vignette with Mouse Parallax Depth -->
+    <div class="absolute inset-0 z-0 hero-parallax-layer" id="heroBgLayer">
+      <div class="hero-bg-slide active" style="background-image: linear-gradient(to bottom, rgba(18,19,22,0.42) 0%, rgba(18,19,22,0.8) 100%), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2000&auto=format&fit=crop');"></div>
+      <div class="hero-bg-slide" style="background-image: linear-gradient(to bottom, rgba(18,19,22,0.42) 0%, rgba(18,19,22,0.8) 100%), url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop');"></div>
+      <div class="hero-bg-slide" style="background-image: linear-gradient(to bottom, rgba(18,19,22,0.42) 0%, rgba(18,19,22,0.8) 100%), url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2000&auto=format&fit=crop');"></div>
       <div class="hero-vignette"></div>
     </div>
 
-    <!-- Hero Content -->
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white py-20 md:py-28">
+    <!-- Hero Content with Cinematic Entrance Animation & Subtle 3D Tilt -->
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white py-20 md:py-28 hero-content-layer" id="heroContentLayer">
       
       <!-- Trust Badge -->
-      <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-white/20 bg-black/40 backdrop-blur-md mb-8">
+      <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-white/20 bg-black/40 backdrop-blur-md mb-8 animate-hero-badge">
         <span class="flex items-center text-gold text-xs">
           <i data-lucide="star" class="w-3.5 h-3.5 fill-gold text-gold"></i>
           <span class="ml-1.5 font-semibold text-white tracking-wider">4.8 ★</span>
@@ -246,29 +276,29 @@
         <span class="text-xs uppercase tracking-[0.2em] text-sand-light font-medium">255+ Verified Google Reviews</span>
       </div>
 
-      <!-- Exact Hero Heading Specified by Brief -->
-      <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.06] font-medium text-white mb-6 uppercase">
+      <!-- Exact Hero Heading Specified by Brief with Cinematic Mask Reveal -->
+      <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.06] font-medium text-white mb-6 uppercase animate-hero-title">
         THE WORLD IS <br class="hidden sm:inline" />
-        <span class="italic font-normal text-sand-light">WAITING.</span>
+        <span class="italic font-normal text-sand-light text-reveal-highlight">WAITING.</span>
       </h1>
 
-      <!-- Exact Hero Subheading -->
-      <p class="max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-white/85 font-light leading-relaxed mb-10 tracking-wide">
+      <!-- Exact Hero Subheading with Fade-Up -->
+      <p class="max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-white/85 font-light leading-relaxed mb-10 tracking-wide animate-hero-sub">
         We make getting there effortless.
       </p>
 
-      <!-- Primary & Secondary CTAs -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-12">
-        <a href="#planner" class="w-full sm:w-auto px-8 py-4 bg-gold hover:bg-gold-light text-charcoal-dark uppercase tracking-widest text-xs font-semibold transition-all duration-300 shadow-xl text-center">
+      <!-- Primary & Secondary CTAs with Smooth Elevation -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-12 animate-hero-cta">
+        <a href="#planner" class="btn-luxury-gold w-full sm:w-auto px-8 py-4 bg-gold hover:bg-gold-light text-charcoal-dark uppercase tracking-widest text-xs font-semibold transition-all duration-300 shadow-xl text-center">
           PLAN YOUR JOURNEY
         </a>
-        <a href="#destinations" class="w-full sm:w-auto px-8 py-4 border border-white/40 hover:border-gold hover:text-gold text-white uppercase tracking-widest text-xs font-semibold transition-all duration-300 text-center backdrop-blur-sm">
+        <a href="#destinations" class="w-full sm:w-auto px-8 py-4 border border-white/40 hover:border-gold hover:text-gold text-white uppercase tracking-widest text-xs font-semibold transition-all duration-300 text-center backdrop-blur-sm hover:bg-white/5">
           EXPLORE DESTINATIONS
         </a>
       </div>
 
       <!-- Subtle WhatsApp CTA -->
-      <div class="inline-flex items-center justify-center gap-2 text-sand-light text-xs tracking-wider">
+      <div class="inline-flex items-center justify-center gap-2 text-sand-light text-xs tracking-wider animate-hero-footer">
         <span>Looking for instant itinerary planning?</span>
         <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20journey." target="_blank" rel="noopener noreferrer" class="text-gold hover:underline inline-flex items-center gap-1 font-medium">
           <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
@@ -286,12 +316,12 @@
     </a>
   </section>
 
-  <!-- 2. EDITORIAL DESTINATIONS ("JOURNEYS") -->
+  <!-- 2. EDITORIAL DESTINATIONS ("JOURNEYS") WITH 3D HOVER TILT -->
   <section id="destinations" class="py-24 lg:py-32 bg-ivory text-charcoal relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       
-      <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <!-- Section Header with Scroll Reveal -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal-on-scroll">
         <div>
           <div class="inline-flex items-center gap-2 mb-3">
             <span class="w-8 h-[1px] bg-gold"></span>
@@ -310,7 +340,7 @@
       </div>
 
       <!-- Regional Filter Tabs -->
-      <div class="flex flex-wrap gap-3 mb-12 border-b border-sand/40 pb-4">
+      <div class="flex flex-wrap gap-3 mb-12 border-b border-sand/40 pb-4 reveal-on-scroll">
         <button class="dest-tab-btn active px-5 py-2 text-xs uppercase tracking-widest font-semibold transition-all border border-charcoal-dark bg-charcoal-dark text-white" data-region="all">
           All Destinations
         </button>
@@ -322,329 +352,353 @@
         </button>
       </div>
 
-      <!-- Destination Editorial Grid -->
+      <!-- Destination Editorial Grid with 3D Tilt Behavior -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="destinationCardsGrid">
         
         <!-- Domestic 1: Kashmir -->
-        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl" data-category="domestic" data-name="Kashmir">
-          <img src="https://images.unsplash.com/photo-1595815771614-ade9d652a65d?q=80&w=1000&auto=format&fit=crop" alt="Kashmir Dal Lake & Gulmarg" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
-          
-          <div class="absolute top-6 left-6">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
-              Domestic
-            </span>
-          </div>
+        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl reveal-card" data-category="domestic" data-name="Kashmir">
+          <div class="card-inner w-full h-full relative">
+            <img src="https://images.unsplash.com/photo-1595815771614-ade9d652a65d?q=80&w=1000&auto=format&fit=crop" alt="Kashmir Dal Lake & Gulmarg" class="dest-img w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+            
+            <div class="absolute top-6 left-6">
+              <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
+                Domestic
+              </span>
+            </div>
 
-          <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Paradise on Earth</span>
-            <h3 class="font-serif text-3xl font-medium text-white leading-none">Kashmir</h3>
-            <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
-              Shikara rides across Dal Lake, snow meadows in Gulmarg, pine forests of Pahalgam, and heritage houseboats.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-white/15">
-              <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
-              <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Kashmir." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
-                <span>PLAN THIS JOURNEY</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
+            <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
+              <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Paradise on Earth</span>
+              <h3 class="font-serif text-3xl font-medium text-white leading-none">Kashmir</h3>
+              <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
+                Shikara rides across Dal Lake, snow meadows in Gulmarg, pine forests of Pahalgam, and heritage houseboats.
+              </p>
+              <div class="pt-3 flex items-center justify-between border-t border-white/15">
+                <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
+                <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Kashmir." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
+                  <span>PLAN THIS JOURNEY</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- Domestic 2: Kerala -->
-        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl" data-category="domestic" data-name="Kerala">
-          <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1000&auto=format&fit=crop" alt="Kerala Backwaters & Houseboat" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
-          
-          <div class="absolute top-6 left-6">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
-              Domestic
-            </span>
-          </div>
+        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl reveal-card" data-category="domestic" data-name="Kerala">
+          <div class="card-inner w-full h-full relative">
+            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1000&auto=format&fit=crop" alt="Kerala Backwaters & Houseboat" class="dest-img w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+            
+            <div class="absolute top-6 left-6">
+              <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
+                Domestic
+              </span>
+            </div>
 
-          <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">God's Own Country</span>
-            <h3 class="font-serif text-3xl font-medium text-white leading-none">Kerala</h3>
-            <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
-              Serene Alleppey backwaters, mist-covered Munnar tea gardens, Ayurvedic retreats, and coastal tranquility.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-white/15">
-              <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
-              <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Kerala." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
-                <span>PLAN THIS JOURNEY</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
+            <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
+              <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">God's Own Country</span>
+              <h3 class="font-serif text-3xl font-medium text-white leading-none">Kerala</h3>
+              <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
+                Serene Alleppey backwaters, mist-covered Munnar tea gardens, Ayurvedic retreats, and coastal tranquility.
+              </p>
+              <div class="pt-3 flex items-center justify-between border-t border-white/15">
+                <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
+                <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Kerala." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
+                  <span>PLAN THIS JOURNEY</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- Domestic 3: Himachal Pradesh -->
-        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl" data-category="domestic" data-name="Himachal Pradesh">
-          <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?q=80&w=1000&auto=format&fit=crop" alt="Himachal Mountain Valleys" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
-          
-          <div class="absolute top-6 left-6">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
-              Domestic
-            </span>
-          </div>
+        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl reveal-card" data-category="domestic" data-name="Himachal Pradesh">
+          <div class="card-inner w-full h-full relative">
+            <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?q=80&w=1000&auto=format&fit=crop" alt="Himachal Mountain Valleys" class="dest-img w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+            
+            <div class="absolute top-6 left-6">
+              <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
+                Domestic
+              </span>
+            </div>
 
-          <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Himalayan Valleys</span>
-            <h3 class="font-serif text-3xl font-medium text-white leading-none">Himachal Pradesh</h3>
-            <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
-              Shimla colonial charm, Manali alpine peaks, Dharamshala monasteries, and pristine Solang Valley adventure.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-white/15">
-              <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
-              <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Himachal%20Pradesh." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
-                <span>PLAN THIS JOURNEY</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
+            <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
+              <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Himalayan Valleys</span>
+              <h3 class="font-serif text-3xl font-medium text-white leading-none">Himachal Pradesh</h3>
+              <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
+                Shimla colonial charm, Manali alpine peaks, Dharamshala monasteries, and pristine Solang Valley adventure.
+              </p>
+              <div class="pt-3 flex items-center justify-between border-t border-white/15">
+                <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
+                <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Himachal%20Pradesh." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
+                  <span>PLAN THIS JOURNEY</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- Domestic 4: Uttarakhand -->
-        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl" data-category="domestic" data-name="Uttarakhand">
-          <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1000&auto=format&fit=crop" alt="Uttarakhand Himalayan Vista" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
-          
-          <div class="absolute top-6 left-6">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
-              Domestic
-            </span>
-          </div>
+        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl reveal-card" data-category="domestic" data-name="Uttarakhand">
+          <div class="card-inner w-full h-full relative">
+            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1000&auto=format&fit=crop" alt="Uttarakhand Himalayan Vista" class="dest-img w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+            
+            <div class="absolute top-6 left-6">
+              <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
+                Domestic
+              </span>
+            </div>
 
-          <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Land of the Gods</span>
-            <h3 class="font-serif text-3xl font-medium text-white leading-none">Uttarakhand</h3>
-            <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
-              Rishikesh riverfront calm, Mussoorie queen of hills, Nainital lakes, and Jim Corbett wilderness.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-white/15">
-              <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
-              <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Uttarakhand." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
-                <span>PLAN THIS JOURNEY</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
+            <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
+              <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Land of the Gods</span>
+              <h3 class="font-serif text-3xl font-medium text-white leading-none">Uttarakhand</h3>
+              <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
+                Rishikesh riverfront calm, Mussoorie queen of hills, Nainital lakes, and Jim Corbett wilderness.
+              </p>
+              <div class="pt-3 flex items-center justify-between border-t border-white/15">
+                <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
+                <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Uttarakhand." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
+                  <span>PLAN THIS JOURNEY</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- Domestic 5: Goa -->
-        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl" data-category="domestic" data-name="Goa">
-          <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1000&auto=format&fit=crop" alt="Goa Coastal Sunset" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
-          
-          <div class="absolute top-6 left-6">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
-              Domestic
-            </span>
-          </div>
+        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl reveal-card" data-category="domestic" data-name="Goa">
+          <div class="card-inner w-full h-full relative">
+            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?q=80&w=1000&auto=format&fit=crop" alt="Goa Coastal Sunset" class="dest-img w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+            
+            <div class="absolute top-6 left-6">
+              <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
+                Domestic
+              </span>
+            </div>
 
-          <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Arabian Sea Coast</span>
-            <h3 class="font-serif text-3xl font-medium text-white leading-none">Goa</h3>
-            <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
-              Portuguese heritage villas, pristine South Goa beaches, yacht charters, and sunset fine dining.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-white/15">
-              <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
-              <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Goa." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
-                <span>PLAN THIS JOURNEY</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
+            <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
+              <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Arabian Sea Coast</span>
+              <h3 class="font-serif text-3xl font-medium text-white leading-none">Goa</h3>
+              <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
+                Portuguese heritage villas, pristine South Goa beaches, yacht charters, and sunset fine dining.
+              </p>
+              <div class="pt-3 flex items-center justify-between border-t border-white/15">
+                <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
+                <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Goa." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
+                  <span>PLAN THIS JOURNEY</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- Domestic 6: Port Blair & Andaman -->
-        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl" data-category="domestic" data-name="Port Blair & Andaman">
-          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1000&auto=format&fit=crop" alt="Port Blair & Andaman Island Beaches" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
-          
-          <div class="absolute top-6 left-6">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
-              Domestic
-            </span>
-          </div>
+        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl reveal-card" data-category="domestic" data-name="Port Blair & Andaman">
+          <div class="card-inner w-full h-full relative">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1000&auto=format&fit=crop" alt="Port Blair & Andaman Island Beaches" class="dest-img w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+            
+            <div class="absolute top-6 left-6">
+              <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
+                Domestic
+              </span>
+            </div>
 
-          <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Bay of Bengal</span>
-            <h3 class="font-serif text-3xl font-medium text-white leading-none">Port Blair & Andaman</h3>
-            <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
-              Radhanagar white sands, scuba diving in Havelock, Neil Island coral reefs, and Cellular Jail history.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-white/15">
-              <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
-              <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Port%20Blair%20and%20Andaman." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
-                <span>PLAN THIS JOURNEY</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
+            <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
+              <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Bay of Bengal</span>
+              <h3 class="font-serif text-3xl font-medium text-white leading-none">Port Blair & Andaman</h3>
+              <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
+                Radhanagar white sands, scuba diving in Havelock, Neil Island coral reefs, and Cellular Jail history.
+              </p>
+              <div class="pt-3 flex items-center justify-between border-t border-white/15">
+                <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
+                <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Port%20Blair%20and%20Andaman." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
+                  <span>PLAN THIS JOURNEY</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- International 1: Paris & Switzerland -->
-        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl" data-category="international" data-name="Paris & Switzerland">
-          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000&auto=format&fit=crop" alt="Paris Eiffel & Switzerland Alps" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
-          
-          <div class="absolute top-6 left-6">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
-              International
-            </span>
-          </div>
+        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl reveal-card" data-category="international" data-name="Paris & Switzerland">
+          <div class="card-inner w-full h-full relative">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000&auto=format&fit=crop" alt="Paris Eiffel & Switzerland Alps" class="dest-img w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+            
+            <div class="absolute top-6 left-6">
+              <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
+                International
+              </span>
+            </div>
 
-          <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Classic Europe</span>
-            <h3 class="font-serif text-3xl font-medium text-white leading-none">Paris & Switzerland</h3>
-            <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
-              Eiffel Tower romance, scenic Jungfrau railway, Lucerne lake cruises, and complete Schengen visa guidance.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-white/15">
-              <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
-              <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Paris%20and%20Switzerland." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
-                <span>PLAN THIS JOURNEY</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
+            <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
+              <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Classic Europe</span>
+              <h3 class="font-serif text-3xl font-medium text-white leading-none">Paris & Switzerland</h3>
+              <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
+                Eiffel Tower romance, scenic Jungfrau railway, Lucerne lake cruises, and complete Schengen visa guidance.
+              </p>
+              <div class="pt-3 flex items-center justify-between border-t border-white/15">
+                <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
+                <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Paris%20and%20Switzerland." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
+                  <span>PLAN THIS JOURNEY</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- International 2: Central Europe -->
-        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl" data-category="international" data-name="Central Europe">
-          <img src="https://images.unsplash.com/photo-1541849546-216549ae216d?q=80&w=1000&auto=format&fit=crop" alt="Prague & Central Europe Architecture" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
-          
-          <div class="absolute top-6 left-6">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
-              International
-            </span>
-          </div>
+        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl reveal-card" data-category="international" data-name="Central Europe">
+          <div class="card-inner w-full h-full relative">
+            <img src="https://images.unsplash.com/photo-1541849546-216549ae216d?q=80&w=1000&auto=format&fit=crop" alt="Prague & Central Europe Architecture" class="dest-img w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+            
+            <div class="absolute top-6 left-6">
+              <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
+                International
+              </span>
+            </div>
 
-          <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Imperial Heritage</span>
-            <h3 class="font-serif text-3xl font-medium text-white leading-none">Central Europe</h3>
-            <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
-              Vienna imperial palaces, Prague cobblestone streets, Budapest Danube riverfronts, and classical concerts.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-white/15">
-              <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
-              <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Central%20Europe." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
-                <span>PLAN THIS JOURNEY</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
+            <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
+              <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Imperial Heritage</span>
+              <h3 class="font-serif text-3xl font-medium text-white leading-none">Central Europe</h3>
+              <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
+                Vienna imperial palaces, Prague cobblestone streets, Budapest Danube riverfronts, and classical concerts.
+              </p>
+              <div class="pt-3 flex items-center justify-between border-t border-white/15">
+                <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
+                <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Central%20Europe." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
+                  <span>PLAN THIS JOURNEY</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- International 3: London & Scotland -->
-        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl" data-category="international" data-name="London & Scotland">
-          <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1000&auto=format&fit=crop" alt="London Tower Bridge & Scotland Castles" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
-          
-          <div class="absolute top-6 left-6">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
-              International
-            </span>
-          </div>
+        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl reveal-card" data-category="international" data-name="London & Scotland">
+          <div class="card-inner w-full h-full relative">
+            <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1000&auto=format&fit=crop" alt="London Tower Bridge & Scotland Castles" class="dest-img w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+            
+            <div class="absolute top-6 left-6">
+              <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
+                International
+              </span>
+            </div>
 
-          <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Great Britain</span>
-            <h3 class="font-serif text-3xl font-medium text-white leading-none">London & Scotland</h3>
-            <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
-              Westminster landmarks, Edinburgh castle panoramas, Scottish Highlands, and tailored UK visa support.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-white/15">
-              <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
-              <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20London%20and%20Scotland." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
-                <span>PLAN THIS JOURNEY</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
+            <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
+              <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Great Britain</span>
+              <h3 class="font-serif text-3xl font-medium text-white leading-none">London & Scotland</h3>
+              <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
+                Westminster landmarks, Edinburgh castle panoramas, Scottish Highlands, and tailored UK visa support.
+              </p>
+              <div class="pt-3 flex items-center justify-between border-t border-white/15">
+                <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
+                <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20London%20and%20Scotland." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
+                  <span>PLAN THIS JOURNEY</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- International 4: Bali -->
-        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl" data-category="international" data-name="Bali">
-          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1000&auto=format&fit=crop" alt="Bali Ubud Jungle & Coast" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
-          
-          <div class="absolute top-6 left-6">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
-              International
-            </span>
-          </div>
+        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl reveal-card" data-category="international" data-name="Bali">
+          <div class="card-inner w-full h-full relative">
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1000&auto=format&fit=crop" alt="Bali Ubud Jungle & Coast" class="dest-img w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+            
+            <div class="absolute top-6 left-6">
+              <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
+                International
+              </span>
+            </div>
 
-          <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Island of the Gods</span>
-            <h3 class="font-serif text-3xl font-medium text-white leading-none">Bali</h3>
-            <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
-              Private infinity pool villas in Ubud, cliffside Uluwatu ocean clubs, sacred water temples, and spa therapies.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-white/15">
-              <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
-              <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Bali." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
-                <span>PLAN THIS JOURNEY</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
+            <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
+              <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Island of the Gods</span>
+              <h3 class="font-serif text-3xl font-medium text-white leading-none">Bali</h3>
+              <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
+                Private infinity pool villas in Ubud, cliffside Uluwatu ocean clubs, sacred water temples, and spa therapies.
+              </p>
+              <div class="pt-3 flex items-center justify-between border-t border-white/15">
+                <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
+                <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20Bali." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
+                  <span>PLAN THIS JOURNEY</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- International 5: USA -->
-        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl" data-category="international" data-name="USA">
-          <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=1000&auto=format&fit=crop" alt="USA New York & Grand Canyon" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
-          
-          <div class="absolute top-6 left-6">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
-              International
-            </span>
-          </div>
+        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl reveal-card" data-category="international" data-name="USA">
+          <div class="card-inner w-full h-full relative">
+            <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=1000&auto=format&fit=crop" alt="USA New York & Grand Canyon" class="dest-img w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+            
+            <div class="absolute top-6 left-6">
+              <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
+                International
+              </span>
+            </div>
 
-          <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Coast to Coast</span>
-            <h3 class="font-serif text-3xl font-medium text-white leading-none">USA</h3>
-            <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
-              New York skyline, California coastal drive, Grand Canyon expeditions, and Orlando family resorts.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-white/15">
-              <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
-              <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20USA." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
-                <span>PLAN THIS JOURNEY</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
+            <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
+              <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Coast to Coast</span>
+              <h3 class="font-serif text-3xl font-medium text-white leading-none">USA</h3>
+              <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
+                New York skyline, California coastal drive, Grand Canyon expeditions, and Orlando family resorts.
+              </p>
+              <div class="pt-3 flex items-center justify-between border-t border-white/15">
+                <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
+                <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20USA." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
+                  <span>PLAN THIS JOURNEY</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
           </div>
         </article>
 
         <!-- Domestic 7: South India Heritage -->
-        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl" data-category="domestic" data-name="South India">
-          <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=1000&auto=format&fit=crop" alt="South India Temple & Hills" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
-          
-          <div class="absolute top-6 left-6">
-            <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
-              Domestic
-            </span>
-          </div>
+        <article class="destination-card group relative bg-charcoal-dark overflow-hidden aspect-[4/5] shadow-xl reveal-card" data-category="domestic" data-name="South India">
+          <div class="card-inner w-full h-full relative">
+            <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=1000&auto=format&fit=crop" alt="South India Temple & Hills" class="dest-img w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out brightness-90" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent"></div>
+            
+            <div class="absolute top-6 left-6">
+              <span class="px-3 py-1 bg-black/40 backdrop-blur-md border border-white/20 text-[10px] uppercase tracking-widest text-sand-light font-medium">
+                Domestic
+              </span>
+            </div>
 
-          <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
-            <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Temple & Hill Circuit</span>
-            <h3 class="font-serif text-3xl font-medium text-white leading-none">South India</h3>
-            <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
-              Mysore palaces, Coorg coffee plantations, Madurai temple grandeur, and Ooty scenic mountain railways.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-white/15">
-              <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
-              <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20South%20India." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
-                <span>PLAN THIS JOURNEY</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
+            <div class="absolute bottom-0 inset-x-0 p-8 text-white space-y-2.5">
+              <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block">Temple & Hill Circuit</span>
+              <h3 class="font-serif text-3xl font-medium text-white leading-none">South India</h3>
+              <p class="text-xs text-white/80 font-light leading-relaxed line-clamp-2">
+                Mysore palaces, Coorg coffee plantations, Madurai temple grandeur, and Ooty scenic mountain railways.
+              </p>
+              <div class="pt-3 flex items-center justify-between border-t border-white/15">
+                <span class="text-[11px] uppercase tracking-wider text-sand-light">Personalized Plan</span>
+                <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20trip%20to%20South%20India." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-white transition-colors">
+                  <span>PLAN THIS JOURNEY</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
             </div>
           </div>
         </article>
@@ -659,7 +713,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       
       <!-- Section Header -->
-      <div class="max-w-3xl mb-16">
+      <div class="max-w-3xl mb-16 reveal-on-scroll">
         <div class="inline-flex items-center gap-2 mb-3">
           <span class="w-8 h-[1px] bg-gold"></span>
           <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">
@@ -676,7 +730,7 @@
       </div>
 
       <!-- Intelligent Category Switcher -->
-      <div class="flex flex-wrap gap-3 mb-12 border-b border-sand/30 pb-4">
+      <div class="flex flex-wrap gap-3 mb-12 border-b border-sand/30 pb-4 reveal-on-scroll">
         <button class="service-tab-btn active px-6 py-2.5 text-xs uppercase tracking-widest font-semibold transition-all border border-charcoal-dark bg-charcoal-dark text-white" data-category="holidays">
           1. Holidays
         </button>
@@ -692,9 +746,9 @@
       <div id="holidays" class="service-panel active">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          <!-- Visual Feature Tile -->
-          <div class="lg:col-span-4 relative overflow-hidden bg-charcoal-dark min-h-[360px] p-8 flex flex-col justify-end text-white border border-sand/30">
-            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1000&auto=format&fit=crop" alt="Luxury Holidays" class="absolute inset-0 w-full h-full object-cover brightness-75" />
+          <!-- Visual Feature Tile with Zoom Effect -->
+          <div class="lg:col-span-4 relative overflow-hidden bg-charcoal-dark min-h-[360px] p-8 flex flex-col justify-end text-white border border-sand/30 service-visual-box">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1000&auto=format&fit=crop" alt="Luxury Holidays" class="absolute inset-0 w-full h-full object-cover brightness-75 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
             <div class="relative z-10 space-y-2">
               <span class="text-[10px] uppercase tracking-widest text-gold font-semibold">Vacation Collection</span>
@@ -706,7 +760,7 @@
           <!-- Service List Items -->
           <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
             
-            <div class="p-6 bg-ivory border border-sand/40 space-y-3">
+            <div class="p-6 bg-ivory border border-sand/40 space-y-3 service-item-card transition-all duration-300 hover:border-gold">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 flex items-center justify-center border border-gold/40 text-gold bg-white">
                   <i data-lucide="users" class="w-4 h-4"></i>
@@ -720,7 +774,7 @@
               </a>
             </div>
 
-            <div class="p-6 bg-ivory border border-sand/40 space-y-3">
+            <div class="p-6 bg-ivory border border-sand/40 space-y-3 service-item-card transition-all duration-300 hover:border-gold">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 flex items-center justify-center border border-gold/40 text-gold bg-white">
                   <i data-lucide="heart" class="w-4 h-4"></i>
@@ -734,7 +788,7 @@
               </a>
             </div>
 
-            <div class="p-6 bg-ivory border border-sand/40 space-y-3">
+            <div class="p-6 bg-ivory border border-sand/40 space-y-3 service-item-card transition-all duration-300 hover:border-gold">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 flex items-center justify-center border border-gold/40 text-gold bg-white">
                   <i data-lucide="smile" class="w-4 h-4"></i>
@@ -748,7 +802,7 @@
               </a>
             </div>
 
-            <div class="p-6 bg-ivory border border-sand/40 space-y-3">
+            <div class="p-6 bg-ivory border border-sand/40 space-y-3 service-item-card transition-all duration-300 hover:border-gold">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 flex items-center justify-center border border-gold/40 text-gold bg-white">
                   <i data-lucide="compass" class="w-4 h-4"></i>
@@ -771,8 +825,8 @@
       <div id="travel-services" class="service-panel hidden">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          <div class="lg:col-span-4 relative overflow-hidden bg-charcoal-dark min-h-[360px] p-8 flex flex-col justify-end text-white border border-sand/30">
-            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop" alt="Flight and Visa Services" class="absolute inset-0 w-full h-full object-cover brightness-75" />
+          <div class="lg:col-span-4 relative overflow-hidden bg-charcoal-dark min-h-[360px] p-8 flex flex-col justify-end text-white border border-sand/30 service-visual-box">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1000&auto=format&fit=crop" alt="Flight and Visa Services" class="absolute inset-0 w-full h-full object-cover brightness-75 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
             <div class="relative z-10 space-y-2">
               <span class="text-[10px] uppercase tracking-widest text-gold font-semibold">Logistics & Support</span>
@@ -783,7 +837,7 @@
 
           <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
             
-            <div class="p-6 bg-ivory border border-sand/40 space-y-3">
+            <div class="p-6 bg-ivory border border-sand/40 space-y-3 service-item-card transition-all duration-300 hover:border-gold">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 flex items-center justify-center border border-gold/40 text-gold bg-white">
                   <i data-lucide="plane" class="w-4 h-4"></i>
@@ -797,7 +851,7 @@
               </a>
             </div>
 
-            <div class="p-6 bg-ivory border border-sand/40 space-y-3">
+            <div class="p-6 bg-ivory border border-sand/40 space-y-3 service-item-card transition-all duration-300 hover:border-gold">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 flex items-center justify-center border border-gold/40 text-gold bg-white">
                   <i data-lucide="building-2" class="w-4 h-4"></i>
@@ -811,7 +865,7 @@
               </a>
             </div>
 
-            <div class="p-6 bg-ivory border border-sand/40 space-y-3">
+            <div class="p-6 bg-ivory border border-sand/40 space-y-3 service-item-card transition-all duration-300 hover:border-gold">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 flex items-center justify-center border border-gold/40 text-gold bg-white">
                   <i data-lucide="file-check" class="w-4 h-4"></i>
@@ -825,7 +879,7 @@
               </a>
             </div>
 
-            <div class="p-6 bg-ivory border border-sand/40 space-y-3">
+            <div class="p-6 bg-ivory border border-sand/40 space-y-3 service-item-card transition-all duration-300 hover:border-gold">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 flex items-center justify-center border border-gold/40 text-gold bg-white">
                   <i data-lucide="shield-check" class="w-4 h-4"></i>
@@ -848,8 +902,8 @@
       <div id="bespoke-travel" class="service-panel hidden">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          <div class="lg:col-span-4 relative overflow-hidden bg-charcoal-dark min-h-[360px] p-8 flex flex-col justify-end text-white border border-sand/30">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop" alt="Bespoke Weddings and Corporate Travel" class="absolute inset-0 w-full h-full object-cover brightness-75" />
+          <div class="lg:col-span-4 relative overflow-hidden bg-charcoal-dark min-h-[360px] p-8 flex flex-col justify-end text-white border border-sand/30 service-visual-box">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop" alt="Bespoke Weddings and Corporate Travel" class="absolute inset-0 w-full h-full object-cover brightness-75 transition-transform duration-700 hover:scale-105" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
             <div class="relative z-10 space-y-2">
               <span class="text-[10px] uppercase tracking-widest text-gold font-semibold">Special Journeys</span>
@@ -860,7 +914,7 @@
 
           <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
             
-            <div class="p-6 bg-ivory border border-sand/40 space-y-3">
+            <div class="p-6 bg-ivory border border-sand/40 space-y-3 service-item-card transition-all duration-300 hover:border-gold">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 flex items-center justify-center border border-gold/40 text-gold bg-white">
                   <i data-lucide="briefcase" class="w-4 h-4"></i>
@@ -874,7 +928,7 @@
               </a>
             </div>
 
-            <div class="p-6 bg-ivory border border-sand/40 space-y-3">
+            <div class="p-6 bg-ivory border border-sand/40 space-y-3 service-item-card transition-all duration-300 hover:border-gold">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 flex items-center justify-center border border-gold/40 text-gold bg-white">
                   <i data-lucide="sparkles" class="w-4 h-4"></i>
@@ -888,7 +942,7 @@
               </a>
             </div>
 
-            <div class="p-6 bg-ivory border border-sand/40 space-y-3">
+            <div class="p-6 bg-ivory border border-sand/40 space-y-3 service-item-card transition-all duration-300 hover:border-gold">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 flex items-center justify-center border border-gold/40 text-gold bg-white">
                   <i data-lucide="sliders" class="w-4 h-4"></i>
@@ -902,7 +956,7 @@
               </a>
             </div>
 
-            <div class="p-6 bg-ivory border border-sand/40 space-y-3">
+            <div class="p-6 bg-ivory border border-sand/40 space-y-3 service-item-card transition-all duration-300 hover:border-gold">
               <div class="flex items-center gap-3">
                 <div class="w-8 h-8 flex items-center justify-center border border-gold/40 text-gold bg-white">
                   <i data-lucide="globe" class="w-4 h-4"></i>
@@ -929,7 +983,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       
       <!-- Section Header -->
-      <div class="max-w-3xl mb-16">
+      <div class="max-w-3xl mb-16 reveal-on-scroll">
         <div class="inline-flex items-center gap-2 mb-3">
           <span class="w-8 h-[1px] bg-gold"></span>
           <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">
@@ -948,7 +1002,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         
         <!-- Pillar 1: PERSONALIZED JOURNEYS -->
-        <div class="border border-white/10 bg-charcoal-surface p-8 space-y-4 hover:border-gold/60 transition-all duration-300">
+        <div class="border border-white/10 bg-charcoal-surface p-8 space-y-4 hover:border-gold/60 transition-all duration-300 reveal-card">
           <div class="w-10 h-10 flex items-center justify-center border border-gold/40 text-gold">
             <i data-lucide="sliders" class="w-5 h-5"></i>
           </div>
@@ -961,7 +1015,7 @@
         </div>
 
         <!-- Pillar 2: END-TO-END SUPPORT -->
-        <div class="border border-white/10 bg-charcoal-surface p-8 space-y-4 hover:border-gold/60 transition-all duration-300">
+        <div class="border border-white/10 bg-charcoal-surface p-8 space-y-4 hover:border-gold/60 transition-all duration-300 reveal-card">
           <div class="w-10 h-10 flex items-center justify-center border border-gold/40 text-gold">
             <i data-lucide="headphones" class="w-5 h-5"></i>
           </div>
@@ -974,7 +1028,7 @@
         </div>
 
         <!-- Pillar 3: DOMESTIC & INTERNATIONAL EXPERTISE -->
-        <div class="border border-white/10 bg-charcoal-surface p-8 space-y-4 hover:border-gold/60 transition-all duration-300">
+        <div class="border border-white/10 bg-charcoal-surface p-8 space-y-4 hover:border-gold/60 transition-all duration-300 reveal-card">
           <div class="w-10 h-10 flex items-center justify-center border border-gold/40 text-gold">
             <i data-lucide="globe-2" class="w-5 h-5"></i>
           </div>
@@ -987,7 +1041,7 @@
         </div>
 
         <!-- Pillar 4: EXPERIENCED TRAVEL TEAM -->
-        <div class="border border-white/10 bg-charcoal-surface p-8 space-y-4 hover:border-gold/60 transition-all duration-300">
+        <div class="border border-white/10 bg-charcoal-surface p-8 space-y-4 hover:border-gold/60 transition-all duration-300 reveal-card">
           <div class="w-10 h-10 flex items-center justify-center border border-gold/40 text-gold">
             <i data-lucide="award" class="w-5 h-5"></i>
           </div>
@@ -1010,10 +1064,10 @@
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
-        <!-- Left Photography Showcase -->
-        <div class="lg:col-span-5 relative">
+        <!-- Left Photography Showcase with Subtle Reveal -->
+        <div class="lg:col-span-5 relative reveal-on-scroll">
           <div class="border border-sand/40 overflow-hidden shadow-2xl aspect-[3/4] bg-sand/10">
-            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop" alt="Travel Box Holidays Personal Travel Consultant" class="w-full h-full object-cover object-center" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop" alt="Travel Box Holidays Personal Travel Consultant" class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105" loading="lazy" />
           </div>
           <div class="p-6 bg-white border border-sand/40 shadow-xl -mt-12 ml-6 sm:ml-10 relative z-10 max-w-xs">
             <span class="text-xs uppercase tracking-widest text-gold font-semibold block mb-1">Our Agency Creed</span>
@@ -1024,7 +1078,7 @@
         </div>
 
         <!-- Right Narrative Copy -->
-        <div class="lg:col-span-7 space-y-6">
+        <div class="lg:col-span-7 space-y-6 reveal-on-scroll">
           <div class="inline-flex items-center gap-2">
             <span class="w-8 h-[1px] bg-gold"></span>
             <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">
@@ -1074,7 +1128,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       
       <!-- Section Header with Real Rating Details -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal-on-scroll">
         <div>
           <div class="inline-flex items-center gap-2 mb-3">
             <span class="w-8 h-[1px] bg-gold"></span>
@@ -1109,7 +1163,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Review Theme 1 -->
-        <div class="border border-sand/30 bg-ivory/50 p-8 flex flex-col justify-between hover:border-gold transition-colors duration-300">
+        <div class="border border-sand/30 bg-ivory/50 p-8 flex flex-col justify-between hover:border-gold transition-colors duration-300 reveal-card">
           <div>
             <div class="flex text-gold mb-6">
               <i data-lucide="star" class="w-4 h-4 fill-gold text-gold"></i>
@@ -1132,7 +1186,7 @@
         </div>
 
         <!-- Review Theme 2 -->
-        <div class="border border-sand/30 bg-ivory/50 p-8 flex flex-col justify-between hover:border-gold transition-colors duration-300">
+        <div class="border border-sand/30 bg-ivory/50 p-8 flex flex-col justify-between hover:border-gold transition-colors duration-300 reveal-card">
           <div>
             <div class="flex text-gold mb-6">
               <i data-lucide="star" class="w-4 h-4 fill-gold text-gold"></i>
@@ -1155,7 +1209,7 @@
         </div>
 
         <!-- Review Theme 3 -->
-        <div class="border border-sand/30 bg-ivory/50 p-8 flex flex-col justify-between hover:border-gold transition-colors duration-300">
+        <div class="border border-sand/30 bg-ivory/50 p-8 flex flex-col justify-between hover:border-gold transition-colors duration-300 reveal-card">
           <div>
             <div class="flex text-gold mb-6">
               <i data-lucide="star" class="w-4 h-4 fill-gold text-gold"></i>
@@ -1180,7 +1234,7 @@
       </div>
 
       <!-- Link to Google Reviews -->
-      <div class="mt-12 text-center">
+      <div class="mt-12 text-center reveal-on-scroll">
         <a href="https://maps.google.com/?q=Travel+Box+Holidays+Exhibition+Road+Patna" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 border border-charcoal text-xs uppercase tracking-widest font-semibold text-charcoal hover:bg-charcoal hover:text-white transition-colors duration-300">
           <span>View All Google Reviews</span>
           <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
@@ -1194,7 +1248,7 @@
   <section id="planner" class="py-24 lg:py-32 bg-ivory text-charcoal relative">
     <div class="max-w-5xl mx-auto px-6 lg:px-12">
       
-      <div class="bg-white border border-sand/40 shadow-2xl p-8 sm:p-12 lg:p-16">
+      <div class="bg-white border border-sand/40 shadow-2xl p-8 sm:p-12 lg:p-16 reveal-on-scroll">
         
         <div class="max-w-2xl mx-auto text-center mb-12">
           <div class="inline-flex items-center gap-2 mb-3">
@@ -1219,19 +1273,19 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             <!-- Name -->
-            <div>
+            <div class="form-group relative">
               <label for="clientName" class="block text-xs uppercase tracking-wider text-charcoal-dark font-semibold mb-2">
                 Name <span class="text-gold">*</span>
               </label>
-              <input type="text" id="clientName" name="clientName" required placeholder="Your full name" class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-colors" />
+              <input type="text" id="clientName" name="clientName" required placeholder="Your full name" class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-all" />
             </div>
 
             <!-- Phone -->
-            <div>
+            <div class="form-group relative">
               <label for="clientPhone" class="block text-xs uppercase tracking-wider text-charcoal-dark font-semibold mb-2">
                 Phone Number <span class="text-gold">*</span>
               </label>
-              <input type="tel" id="clientPhone" name="clientPhone" required placeholder="+91 98765 43210" class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-colors" />
+              <input type="tel" id="clientPhone" name="clientPhone" required placeholder="+91 98765 43210" class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-all" />
             </div>
 
           </div>
@@ -1239,27 +1293,27 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <!-- Destination -->
-            <div>
+            <div class="form-group relative">
               <label for="clientDestination" class="block text-xs uppercase tracking-wider text-charcoal-dark font-semibold mb-2">
                 Destination <span class="text-gold">*</span>
               </label>
-              <input type="text" id="clientDestination" name="clientDestination" required placeholder="e.g. Kashmir, Bali, Paris..." class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-colors" />
+              <input type="text" id="clientDestination" name="clientDestination" required placeholder="e.g. Kashmir, Bali, Paris..." class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-all" />
             </div>
 
             <!-- Travel Date -->
-            <div>
+            <div class="form-group relative">
               <label for="travelDate" class="block text-xs uppercase tracking-wider text-charcoal-dark font-semibold mb-2">
                 Travel Date
               </label>
-              <input type="date" id="travelDate" name="travelDate" class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-colors" />
+              <input type="date" id="travelDate" name="travelDate" class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-all" />
             </div>
 
             <!-- Number of Travellers -->
-            <div>
+            <div class="form-group relative">
               <label for="travelCount" class="block text-xs uppercase tracking-wider text-charcoal-dark font-semibold mb-2">
                 Number of Travellers
               </label>
-              <input type="text" id="travelCount" name="travelCount" placeholder="e.g. 2 Adults, 1 Child" class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-colors" />
+              <input type="text" id="travelCount" name="travelCount" placeholder="e.g. 2 Adults, 1 Child" class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-all" />
             </div>
 
           </div>
@@ -1268,11 +1322,11 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <!-- Trip Type Dropdown (Exact options from brief) -->
-            <div class="md:col-span-1">
+            <div class="md:col-span-1 form-group relative">
               <label for="travelType" class="block text-xs uppercase tracking-wider text-charcoal-dark font-semibold mb-2">
                 Trip Type
               </label>
-              <select id="travelType" name="travelType" class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-colors">
+              <select id="travelType" name="travelType" class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-all">
                 <option value="Family Holiday">Family Holiday</option>
                 <option value="Honeymoon">Honeymoon</option>
                 <option value="Couple Trip">Couple Trip</option>
@@ -1286,11 +1340,11 @@
             </div>
 
             <!-- Message Field -->
-            <div class="md:col-span-2">
+            <div class="md:col-span-2 form-group relative">
               <label for="travelMessage" class="block text-xs uppercase tracking-wider text-charcoal-dark font-semibold mb-2">
                 Message / Notes
               </label>
-              <input type="text" id="travelMessage" name="travelMessage" placeholder="Any special requests or accommodation preferences..." class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-colors" />
+              <input type="text" id="travelMessage" name="travelMessage" placeholder="Any special requests or accommodation preferences..." class="w-full px-4 py-3.5 bg-ivory border border-sand/50 text-charcoal focus:outline-none focus:border-charcoal-dark focus:bg-white text-sm transition-all" />
             </div>
 
           </div>
@@ -1302,7 +1356,7 @@
               <span>Direct WhatsApp message to <strong>+91 96544 22590</strong></span>
             </p>
 
-            <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-gold hover:bg-gold-light text-charcoal-dark uppercase tracking-widest text-xs font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
+            <button type="submit" class="btn-luxury-gold w-full sm:w-auto px-10 py-4 bg-gold hover:bg-gold-light text-charcoal-dark uppercase tracking-widest text-xs font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
               <span>START PLANNING</span>
             </button>
@@ -1320,7 +1374,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       
       <!-- Section Header -->
-      <div class="max-w-3xl mb-16">
+      <div class="max-w-3xl mb-16 reveal-on-scroll">
         <div class="inline-flex items-center gap-2 mb-3">
           <span class="w-8 h-[1px] bg-gold"></span>
           <span class="text-xs uppercase tracking-[0.25em] text-gold font-semibold">
@@ -1338,7 +1392,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         <!-- Contact Information Block -->
-        <div class="lg:col-span-5 bg-charcoal-surface border border-white/10 p-8 sm:p-10 space-y-8">
+        <div class="lg:col-span-5 bg-charcoal-surface border border-white/10 p-8 sm:p-10 space-y-8 reveal-on-scroll">
           <div>
             <span class="text-xs uppercase tracking-[0.2em] text-gold font-semibold block mb-1">Travel Agency</span>
             <h3 class="font-serif text-3xl font-medium text-white">TRAVEL BOX HOLIDAYS</h3>
@@ -1396,7 +1450,7 @@
         </div>
 
         <!-- Google Maps Embed -->
-        <div class="lg:col-span-7 bg-charcoal-surface border border-white/10 p-4 flex flex-col justify-between h-full min-h-[420px]">
+        <div class="lg:col-span-7 bg-charcoal-surface border border-white/10 p-4 flex flex-col justify-between h-full min-h-[420px] reveal-on-scroll">
           <div class="w-full h-[340px] sm:h-[380px] bg-charcoal-dark border border-white/10 overflow-hidden">
             <iframe 
               title="Travel Box Holidays Patna Location"
@@ -1417,7 +1471,7 @@
             </span>
             <a href="https://maps.google.com/?q=Travel+Box+Holidays+Exhibition+Road+Patna" target="_blank" rel="noopener noreferrer" class="text-xs text-gold hover:underline font-semibold uppercase tracking-wider inline-flex items-center gap-1">
               <span>View on Google Maps</span>
-              <i data-lucide="external-link" class="w-3 h-3"></i>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
           </div>
         </div>
@@ -1502,7 +1556,7 @@
 
   <!-- Floating Luxury WhatsApp Concierge Button -->
   <div class="fixed bottom-6 right-6 z-40">
-    <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20journey." target="_blank" rel="noopener noreferrer" aria-label="Chat with Travel Box Holidays on WhatsApp" class="group flex items-center gap-3 bg-charcoal-dark hover:bg-black text-white p-3 sm:px-5 sm:py-3.5 rounded-full border border-gold/50 shadow-2xl transition-all duration-300 transform hover:scale-105">
+    <a href="https://wa.me/919654422590?text=Hello%20Travel%20Box%20Holidays%2C%20I%20would%20like%20to%20plan%20a%20journey." target="_blank" rel="noopener noreferrer" aria-label="Chat with Travel Box Holidays on WhatsApp" class="group flex items-center gap-3 bg-charcoal-dark hover:bg-black text-white p-3 sm:px-5 sm:py-3.5 rounded-full border border-gold/50 shadow-2xl transition-all duration-300 transform hover:scale-105 floating-wa-btn">
       <div class="relative flex items-center justify-center w-8 h-8 rounded-full bg-emerald-600 text-white">
         <i data-lucide="message-circle" class="w-4 h-4"></i>
         <span class="absolute -top-1 -right-1 w-3 h-3 bg-gold rounded-full animate-ping opacity-75"></span>
