@@ -1,8 +1,7 @@
 /* ==========================================================================
-   TRAVEL BOX HOLIDAYS - LUXURY EDITORIAL STYLESHEET
+   TRAVEL BOX HOLIDAYS - EDITORIAL LUXURY DESIGN SYSTEM
    ========================================================================== */
 
-/* 1. Global Reset & Base Typography */
 :root {
   --color-charcoal-dark: #121316;
   --color-charcoal: #22252a;
@@ -21,6 +20,7 @@
 html {
   scroll-behavior: smooth;
   text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -32,34 +32,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 2. Custom Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
   background: #121316;
 }
 ::-webkit-scrollbar-thumb {
-  background: #3a3f47;
-  border-radius: 0px;
+  background: #2a2e36;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-gold);
 }
 
-/* 3. Navigation Bar Sticky & Scroll Behavior */
+/* Navigation Bar Sticky & Scroll States */
 .navbar-sticky {
-  background-color: rgba(18, 19, 22, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(18, 19, 22, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar-sticky.scrolled {
-  background-color: rgba(18, 19, 22, 0.95);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+  background-color: rgba(18, 19, 22, 0.96);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.25);
 }
 
 .nav-link {
@@ -82,14 +81,14 @@ body {
   width: 100%;
 }
 
-/* 4. Hero Background & Slideshow Animation */
+/* Hero Background Slideshow */
 .hero-bg-slide {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transform: scale(1.05);
+  transform: scale(1.06);
   transition: opacity 2s ease-in-out, transform 8s cubic-bezier(0.25, 1, 0.5, 1);
   will-change: transform, opacity;
 }
@@ -102,36 +101,47 @@ body {
 .hero-vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 30%, rgba(18, 19, 22, 0.65) 100%);
+  background: radial-gradient(circle at center, transparent 35%, rgba(18, 19, 22, 0.7) 100%);
   pointer-events: none;
 }
 
-/* 5. Custom Button Styles */
-.btn-luxury-primary {
+/* Luxury Button Styling */
+.btn-luxury-gold {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  letter-spacing: 0.15em;
-  transition: all 0.35s ease;
+  letter-spacing: 0.16em;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.btn-luxury-primary:hover {
+.btn-luxury-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(197, 168, 128, 0.4);
+  box-shadow: 0 12px 28px -6px rgba(197, 168, 128, 0.45);
 }
 
-/* 6. Service Tabs & Filter Animations */
-.service-tab-btn {
+/* Destination Filter Tabs */
+.dest-tab-btn, .service-tab-btn {
   letter-spacing: 0.12em;
   transition: all 0.3s ease;
 }
 
-.service-tab-btn.active {
+.dest-tab-btn.active, .service-tab-btn.active {
   background-color: var(--color-charcoal-dark);
   color: #ffffff;
   border-color: var(--color-charcoal-dark);
 }
 
+/* Destination Cards Hover Effects */
+.destination-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.35);
+}
+
+/* Service Panel Transitions */
 .service-panel {
   opacity: 0;
   transform: translateY(12px);
@@ -148,16 +158,7 @@ body {
   display: none;
 }
 
-/* 7. Destination Cards Interaction */
-.destination-card {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.destination-card:hover {
-  transform: translateY(-6px);
-}
-
-/* 8. Mobile Drawer Transitions */
+/* Mobile Drawer */
 .mobile-drawer {
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -166,7 +167,7 @@ body {
   transform: translateX(0);
 }
 
-/* 9. Form Control Custom Focus & Appearance */
+/* Form Controls */
 input, select, textarea {
   border-radius: 0;
   -webkit-appearance: none;
@@ -179,38 +180,4 @@ select {
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 1rem;
-}
-
-/* 10. Keyframes & Animation Helpers */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.8s ease forwards;
-}
-
-@keyframes scrollPill {
-  0% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-}
-
-.animate-scroll-pill {
-  animation: scrollPill 2s infinite ease-in-out;
 }

@@ -1,5 +1,5 @@
 /**
- * TRAVEL BOX HOLIDAYS - INTERACTIVE SCRIPT
+ * TRAVEL BOX HOLIDAYS - INTERACTIVE CORE
  * Location: Exhibition Road, Patna, Bihar
  * Contact / WhatsApp: +91 96544 22590
  */
@@ -59,7 +59,35 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', closeMobileMenu);
   });
 
-  // 5. Service Category Tabs Switcher
+  // 5. Destination Regional Filter Tabs
+  const destTabBtns = document.querySelectorAll('.dest-tab-btn');
+  const destinationCards = document.querySelectorAll('.destination-card');
+
+  destTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const region = btn.getAttribute('data-region');
+
+      // Update button state
+      destTabBtns.forEach(b => {
+        b.classList.remove('active', 'bg-charcoal-dark', 'text-white', 'border-charcoal-dark');
+        b.classList.add('bg-transparent', 'text-charcoal', 'border-sand/40');
+      });
+      btn.classList.add('active', 'bg-charcoal-dark', 'text-white', 'border-charcoal-dark');
+      btn.classList.remove('bg-transparent', 'text-charcoal', 'border-sand/40');
+
+      // Filter cards
+      destinationCards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (region === 'all' || cardCat === region) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // 6. Service Category Switcher
   const serviceTabBtns = document.querySelectorAll('.service-tab-btn');
   const servicePanels = document.querySelectorAll('.service-panel');
 
@@ -67,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const targetCategory = btn.getAttribute('data-category');
 
-      // Update button active state
       serviceTabBtns.forEach(b => {
         b.classList.remove('active', 'bg-charcoal-dark', 'text-white', 'border-charcoal-dark');
         b.classList.add('bg-transparent', 'text-charcoal', 'border-sand/40');
@@ -75,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('active', 'bg-charcoal-dark', 'text-white', 'border-charcoal-dark');
       btn.classList.remove('bg-transparent', 'text-charcoal', 'border-sand/40');
 
-      // Switch panels
       servicePanels.forEach(panel => {
         if (panel.id === targetCategory) {
           panel.classList.remove('hidden');
@@ -88,16 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Destination Quick Inquire
-  const destinationCards = document.querySelectorAll('.destination-card');
+  // 7. Destination Card Click to Pre-Fill Planner
   const destinationInput = document.getElementById('clientDestination');
   destinationCards.forEach(card => {
     card.addEventListener('click', (e) => {
-      // If clicked on direct link, let it proceed
-      if (e.target.closest('a')) return;
+      if (e.target.closest('a')) return; // Allow direct link clicks
 
-      const destName = card.getAttribute('data-destination');
-      if (destinationInput) {
+      const destName = card.getAttribute('data-name');
+      if (destinationInput && destName) {
         destinationInput.value = destName;
         const plannerSection = document.getElementById('planner');
         if (plannerSection) {
@@ -108,36 +132,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 7. Journey Planner / WhatsApp Form Dispatcher
+  // 8. WhatsApp Journey Planner Form Handler
   const journeyForm = document.getElementById('journeyEnquiryForm');
   if (journeyForm) {
     journeyForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
       const name = document.getElementById('clientName')?.value.trim() || 'Valued Traveller';
-      const phone = document.getElementById('clientPhone')?.value.trim() || 'Not specified';
-      const email = document.getElementById('clientEmail')?.value.trim() || 'Not specified';
       const destination = document.getElementById('clientDestination')?.value.trim() || 'Custom Trip';
       const travelDate = document.getElementById('travelDate')?.value || 'Flexible / Upcoming';
       const travellers = document.getElementById('travelCount')?.value.trim() || 'Not specified';
-      const travelType = document.getElementById('travelType')?.value || 'Holiday Package';
-      const budget = document.getElementById('travelBudget')?.value.trim() || 'To be discussed';
+      const tripType = document.getElementById('travelType')?.value || 'Holiday Package';
       const message = document.getElementById('travelMessage')?.value.trim() || 'Please share available package options & customized itinerary.';
 
-      // Format WhatsApp Message
+      // Format exact WhatsApp Message according to specifications
       const formattedMessage = 
 `Hello Travel Box Holidays,
 
 I would like to plan a trip.
 
 Name: ${name}
-Phone: ${phone}
-Email: ${email}
 Destination: ${destination}
 Travel Date: ${travelDate}
 Travellers: ${travellers}
-Travel Type: ${travelType}
-Budget: ${budget}
+Trip Type: ${tripType}
 Message: ${message}
 
 Please help me plan my journey.`;
@@ -146,7 +164,7 @@ Please help me plan my journey.`;
       const encodedText = encodeURIComponent(formattedMessage);
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
 
-      // Open WhatsApp in new tab/window
+      // Open WhatsApp in new window/tab
       window.open(whatsappUrl, '_blank');
     });
   }
